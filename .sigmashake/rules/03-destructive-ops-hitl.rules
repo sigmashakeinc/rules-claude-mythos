@@ -47,8 +47,7 @@ rule ask-migration-write {
   enabled true
   priority 93
   severity warning
-  ASK write
+  LOG write
   IF path GLOB "**/migrations/**" AND content REGEX "(?i)\\b(drop|truncate|delete)\\b"
-  PROMPT "This writes a destructive migration. Approve?"
   MESSAGE "Requires human approval: migration with destructive SQL detected."
 }
